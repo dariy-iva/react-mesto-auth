@@ -17,6 +17,8 @@
 @import url(./__photo-box/popup__photo-box.css);
 @import url(./__photo/popup__photo.css);
 @import url(./__caption-photo/popup__caption-photo.css);
+@import url(./__img-status-regist/popup__img-status-regist.css);
+@import url(./__caption-status-regist/popup__caption-status-regist.css);
 
 .popup {
 	display: flex;
