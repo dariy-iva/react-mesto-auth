@@ -5,6 +5,11 @@ export default function AddPostPopup({ isOpen, onClose, onAddPost }) {
   const [mesto, setMesto] = React.useState("");
   const [link, setLink] = React.useState("");
 
+  React.useEffect(() => {
+    setMesto("");
+    setLink("");
+  }, [isOpen]);
+
   function handleChangeInputMesto(e) {
     setMesto(e.target.value);
   }
@@ -20,9 +25,6 @@ export default function AddPostPopup({ isOpen, onClose, onAddPost }) {
       mesto,
       link,
     });
-
-    setMesto("");
-    setLink("");
   }
 
   return (

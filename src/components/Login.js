@@ -4,6 +4,11 @@ export default function Login({ handleLogin }) {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
 
+  React.useEffect(() => {
+    setEmail("");
+    setPassword("");
+  }, []);
+
   function handleChangeInputEmail(e) {
     setEmail(e.target.value);
   }
@@ -15,8 +20,6 @@ export default function Login({ handleLogin }) {
   function handleSubmit(e) {
     e.preventDefault();
     handleLogin(email, password);
-    setEmail("");
-    setPassword("");
   }
 
   return (

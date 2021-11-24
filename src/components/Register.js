@@ -5,6 +5,11 @@ export default function Register({ handleRegister }) {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
 
+  React.useEffect(() => {
+    setEmail("");
+    setPassword("");
+  }, []);
+
   function handleChangeInputEmail(e) {
     setEmail(e.target.value);
   }
@@ -16,8 +21,6 @@ export default function Register({ handleRegister }) {
   function handleSubmit(e) {
     e.preventDefault();
     handleRegister(password, email);
-    setEmail("");
-    setPassword("");
   }
 
   return (

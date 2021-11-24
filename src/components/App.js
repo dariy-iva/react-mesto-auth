@@ -59,6 +59,18 @@ export default function App() {
     handleTokenCheck();
   }, []);
 
+  React.useEffect(() => {
+    const closeByEscape = (e) => {
+      if (e.key === "Escape") {
+        closeAllPopups();
+      }
+    };
+
+    document.addEventListener("keydown", closeByEscape);
+
+    return () => document.removeEventListener("keydown", closeByEscape);
+  }, []);
+
   function closeAllPopups() {
     setIsEditAvatarPopupOpen(false);
     setIsEditProfilePopupOpen(false);
@@ -163,7 +175,7 @@ export default function App() {
     auth
       .authorize(email, password)
       .then((data) => {
-        if (data.jwt) {
+        if (data.token) {
           setLoggedIn(true);
           history("/");
         }
@@ -177,14 +189,15 @@ export default function App() {
       .then((res) => {
         if (res.statusCode !== 400) {
           setIsSuccessRegist(true);
-          setIsInfoTooltipPopupOpenen(true);
           history("/sign-in");
         }
       })
       .catch((err) => {
         setIsSuccessRegist(false);
-        setIsInfoTooltipPopupOpenen(true);
         return console.log(err);
+      })
+      .finally(() => {
+        setIsInfoTooltipPopupOpenen(true);
       });
   }
 
@@ -216,12 +229,12 @@ export default function App() {
               }
             />
             <Route
-            exact
+              exact
               path="/sign-up"
               element={<Register handleRegister={handleRegister} />}
             />
             <Route
-            exact
+              exact
               path="/sign-in"
               element={<Login handleLogin={handleLogin} />}
             />
