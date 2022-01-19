@@ -18,8 +18,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "pages": "gh-pages -d build",
-    "deploy": "npm run build && scp -r ./build/* dashann@62.84.116.103:/home/dashann/frontend-mesto"
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -51,6 +50,6 @@
   "bugs": {
     "url": "https://github.com/dariy-iva/react-mesto-auth/issues/"
   },
-  "homepage": "https://mesto.dariy-iva.nomoredomains.rocks"
+  "homepage": "https://github.com/react-mesto-auth/#readme"
   
 }
